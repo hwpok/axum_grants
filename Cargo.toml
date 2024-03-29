@@ -1,0 +1,15 @@
+[workspace]
+members=[ "axum_example","axum_grants"]
+
+[profile.release]
+codegen-units = 1
+debug = false
+opt-level = 3
+panic = 'abort'
+
+[workspace.package]
+authors = ["huiwanpeng<hwpok@163.com>"]
+edition = "2021"
+publish = false
+
+[workspace.dependencies]

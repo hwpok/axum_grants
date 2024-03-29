@@ -1,0 +1,16 @@
+[package]
+name = "axum_grants"
+version = "0.1.0"
+authors = ["WanpengHui<hwpok@163.com>"]
+description = "This is a derived macro for adding descriptive information to an enumeration"
+repository = "https://github.com/hwpok/axum_grants"
+license = "MIT"
+edition = "2021"
+
+[lib]
+proc-macro = true
+
+[dependencies]
+proc-macro2 = "1.0.79"
+syn = { version = "2.0.53", features = ["parsing", "extra-traits","full", "visit"] }
+quote ="1.0.35"
