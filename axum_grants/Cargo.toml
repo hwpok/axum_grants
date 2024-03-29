@@ -1,8 +1,8 @@
 [package]
 name = "axum_grants"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["WanpengHui<hwpok@163.com>"]
-description = "This is a derived macro for adding descriptive information to an enumeration"
+description = "These are a series of attribute macros for protecting Axum URI resources."
 repository = "https://github.com/hwpok/axum_grants"
 license = "MIT"
 edition = "2021"
