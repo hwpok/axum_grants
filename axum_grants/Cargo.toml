@@ -2,7 +2,7 @@
 name = "axum_grants"
 version = "0.1.1"
 authors = ["WanpengHui<hwpok@163.com>"]
-description = "These are a series of attribute macros for protecting Axum URI resources."
+description = "A set of attribute macros for protecting Axum URI resources."
 repository = "https://github.com/hwpok/axum_grants"
 license = "MIT"
 edition = "2021"

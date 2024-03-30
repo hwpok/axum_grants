@@ -10,5 +10,5 @@ pub fn protect(attr: TokenStream, input: TokenStream) -> TokenStream {
 
 #[proc_macro_attribute]
 pub fn protect_diy(attr: TokenStream, input: TokenStream) -> TokenStream {
-    expand_protect(attr, input, false)
+    expand_protect(attr, input, true)
 }
