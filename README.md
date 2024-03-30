@@ -9,7 +9,7 @@ For specific usage, please refer to the axum_example crate.
 
 ## Preparatory work
 ```
-You need to define a structure,It must have this field; the type can be Vec or HashSet. 
+You need to define a structure,It must have perms field; the type can be Vec or HashSet. 
 When there are many permission items, please use HashSet because its contains function has a time complexity of O(1).
 It like this:
 #[derive(Debug, Clone, Default)]
