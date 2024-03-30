@@ -38,7 +38,7 @@ if the protected resource only requires a single permission to access, you can s
 
 When the protected resource requires any one of multiple permissions to access, you can set the permissions like this:
 ```rust
-#[protect(any("opt_crt", "opt_upt", opt_del"))]
+#[protect(any("opt_crt", "opt_upt", "opt_del"))]
 ```
 
 When the protected resource requires all of multiple permissions to access, you can set the permissions like this:
