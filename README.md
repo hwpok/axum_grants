@@ -57,7 +57,7 @@ async fn crt_handler(Extension(claims): Extension<Claims>) -> impl IntoResponse 
     Json(json!(
         {
             "cd": "0",
-            "msg": "操作成功",
+            "msg": "success",
             "data": "your business data"
         }
     )).into_response()
