@@ -50,13 +50,8 @@ Here is a general example:
 ```rust
 #[protect("opt_crt")]
 async fn crt_handler(Extension(claims): Extension<Claims>) -> impl IntoResponse {
-    Json(json!(
-        {
-            "cd": "0",
-            "msg": "success",
-            "data": "your business data"
-        }
-    )).into_response()
+    // your business code
+    ...
 }
 ```
 

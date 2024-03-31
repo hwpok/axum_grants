@@ -23,7 +23,7 @@ pub struct Claims {
 async fn main() {
     let listener = tokio::net::TcpListener::bind("0.0.0.0:2000").await.unwrap();
     let router = Router::new().route("/hi", get(hi_handler));
-    axum::serve(listener, router.route_layer(from_fn(auth_middle_war)))
+    axum::serve(listener, router.route_layer(from_fn(auth_middle_ware)))
         .await
         .unwrap();
 }
@@ -41,11 +41,11 @@ async fn hi_handler(Extension(claims): Extension<Claims>) -> impl IntoResponse {
     )).into_response()
 }
 
-async fn auth_middle_war(mut req: Request<Body>, next: Next) -> Response<Body> {
+async fn auth_middle_ware(mut req: Request<Body>, next: Next) -> Response<Body> {
     let uri = req.uri().to_string();
-    println!("uri {} into middle ware", uri);
+    println!("into middle ware, uri: {} ", uri);
 
-
+    // your claims can come from a database, Redis, or JWT
     let vec = vec!["opt_crt".to_string(), "opt_del".to_string()];
     let hashset: HashSet<String> = vec.into_iter().collect();
     let claims = Claims {
