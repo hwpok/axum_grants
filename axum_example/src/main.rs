@@ -35,7 +35,7 @@ async fn hi_handler(Extension(claims): Extension<Claims>) -> impl IntoResponse {
     Json(json!(
         {
             "cd": "0",
-            "msg": "操作成功",
+            "msg": "success",
             "data": "your business data"
         }
     )).into_response()
@@ -45,7 +45,7 @@ async fn auth_middle_war(mut req: Request<Body>, next: Next) -> Response<Body> {
     let uri = req.uri().to_string();
     println!("uri {} into middle ware", uri);
 
-    // insert the claims into extensions
+
     let vec = vec!["opt_crt".to_string(), "opt_del".to_string()];
     let hashset: HashSet<String> = vec.into_iter().collect();
     let claims = Claims {
@@ -53,6 +53,8 @@ async fn auth_middle_war(mut req: Request<Body>, next: Next) -> Response<Body> {
         user_name: "hui".to_string(),
         perms: hashset,
     };
+
+    // insert the claims into extensions
     req.extensions_mut().insert(claims);
 
     // do next
