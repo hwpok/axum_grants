@@ -1,6 +1,6 @@
 [package]
 name = "axum_grants"
-version = "0.1.2"
+version = "0.1.3"
 authors = ["WanpengHui<hwpok@163.com>"]
 description = "A set of attribute macros for protecting Axum URI resources."
 repository = "https://github.com/hwpok/axum_grants"

@@ -55,13 +55,17 @@ async fn crt_handler(Extension(claims): Extension<Claims>) -> impl IntoResponse 
 }
 ```
 
-In the example above, the crt_handler handler function will have the following code inserted:
+In the example above, after the protect attribute macro is expanded, the final code will look like this:
 ```rust
-if !claims.perms.contains("opt_crt".to_string()) {
-    return axum::http::Response::builder()
-        .status(axum::http::StatusCode::FORBIDDEN)
-        .body(Body::from("Insufficient permissions, need the permission: opt_crt "))
-        .unwrap()
+async fn crt_handler(Extension(claims): Extension<Claims>) -> impl IntoResponse {
+    if !claims.perms.contains("opt_crt".to_string()) {
+        return axum::http::Response::builder()
+            .status(axum::http::StatusCode::FORBIDDEN)
+            .body(Body::from("Insufficient permissions, need the permission: opt_crt "))
+            .unwrap()
+    }
+    // your business code
+    ...
 }
 ```
 
@@ -93,10 +97,14 @@ async fn crt_handler(Extension(claims): Extension<Claims>) -> impl IntoResponse 
 }
 ```
 
-In the example above, the crt_handler handler function will have the following code inserted:
+In the example above, after the protect_diy attribute macro is expanded, the final code will look like this:
 ```rust
-if !claims.perms.contains("opt_crt".to_string()) {
-    return return AxumGrantsResponse::get_into_response("Insufficient permissions, need the permission: opt_crt ").into_response();
+async fn crt_handler(Extension(claims): Extension<Claims>) -> impl IntoResponse {
+    if !claims.perms.contains("opt_crt".to_string()) {
+        return return AxumGrantsResponse::get_into_response("Insufficient permissions, need the permission: opt_crt ").into_response();
+    }
+    // your business code
+    ...
 }
 ```
 
